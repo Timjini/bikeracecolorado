@@ -1,0 +1,97 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3 text-white herotext ">Cycling Race Colorado</h1>
+    <p class="lead text-white p-2">An amazing journey awaits you with Colorado's Bike race this srping.</p>
+  </div>
+</div>
+<section class="sc-1 wrap-centent">
+<div class="container section1">
+<div class="row ">
+<div class="col-sm-12 col-md-6">
+<%= image_tag("img2.jpg", :alt => "", :class => "img-fluid") %>
+</div>
+<div class="col-sm-12 col-md-6 p-3">
+<h2 class=" text-white">Information</h2><br>
+<p class=" lead text-white pt-5">Once every decade, an exciting, prestigious, and inspiring bike race takes place in Colorado at the foot of the Rocky Mountains. It's the Boulder Bike Tour, and it's coming up next year!</p>
+<div class="d-flex justify-content-end">
+<%= link_to 'BIKERS', bikers_index_path, class:'btn btn-danger text-white btn-block btn-lg'%>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>(function () {
+  const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+        month = day * 30;
+
+  //I'm adding this section so I don't have to keep updating this pen every year :-)
+  //remove this if you don't need it
+  let today = new Date(),
+      dd = String(today.getDate()).padStart(2, "0"),
+      mm = String(today.getMonth() + 1).padStart(2, "0"),
+      yyyy = today.getFullYear(),
+      nextYear = yyyy + 1,
+      dayMonth = "04/01/",
+      race = dayMonth + yyyy;
+  
+  today = mm + "/" + dd + "/" + yyyy;
+  if (today > race) {
+    race = dayMonth + nextYear;
+  }
+  //end
+  
+  const countDown = new Date(race).getTime(),
+      x = setInterval(function() {    
+
+        const now = new Date().getTime(),
+              distance = countDown - now;
+document.getElementById("months").innerText = Math.floor(distance / (month)),
+        document.getElementById("days").innerText = Math.floor(distance % (month)  / (day)),
+          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+
+        //do something later when date is reached
+        if (distance < 0) {
+          document.getElementById("headline").innerText = "Let the race begin!";
+          document.getElementById("countdown").style.display = "none";
+          document.getElementById("content").style.display = "block";
+          clearInterval(x);
+        }
+        //seconds
+      }, 0)
+  }());</script>
+  <section class="counter flex-wrap d-flex">
+<div class="container p-5 ">
+  <h2 id="headline" class="text-center text-white display-4">Countdown to the race</h2>
+  <div id="countdown" class="row p-3 ">
+  <div class=" text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap" > <h4 id="months" class="text-center timer-text"></h4><br>Months</div>
+  <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"> <h4 id="days" class="text-center timer-text"></h4><br>days</div>
+  <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"><h4 id="hours" class="text-center timer-text"></h4><br>Hours</div>
+  <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"><h4 id="minutes" class="text-center timer-text"></h4><br>Minutes</div>
+  <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"><h4 id="seconds" class="text-center timer-text"></h4><br>Seconds</div>
+  </div>
+  <div id="content" class="emoji">
+    <span>🚴</span>
+    <span>🏁</span>
+    <span>🏆</span>
+  </div>
+</div>
+</section>
+<section class="contest flex-wrap d-flex">
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-6"> 
+    <h3 class="text-dark display-4"> JOIN THE CONTEST</h3> 
+    <p class="lead pt-3 pb-3">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many </p></div>
+    <div class="col-md-6 pl-5">
+    <%= image_tag("Jersey-Gif.gif", :alt => "", :class => "img-fluid") %>
+    </div>
+
+  </div>
+ <%= link_to 'CONTEST', new_participant_path, class:'btn btn-primary btn-lg btn-block text-white '%>
+<iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/timjini/ckwnvqv2g7i0115p2zitgw261.html?title=false&access_token=pk.eyJ1IjoidGltamluaSIsImEiOiJja3duc3lsZmoycGV2MnFuc2R0b3p2MGIwIn0.FzgjAIFk0BByeaeYYqJlsw&zoomwheel=false#11.44/39.9886/-105.3025" title="Basic" style="border:none;"></iframe></section>
+

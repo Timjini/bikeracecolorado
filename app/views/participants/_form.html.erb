@@ -1,0 +1,41 @@
+
+<%= form_for(@participant) do |f| %>
+  <% if participant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(participant.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+        <% participant.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field form-group">
+  <%= f.label :Name %>
+    <%= f.text_field :first_name, class:'form-control' %>
+    </div>
+    <div class="field form-group">
+    <%= f.label :Surname %>
+    <%= f.text_field :last_name, class:'form-control' %>
+        </div>
+    <div class="field form-group">
+    <%= f.label :email%>
+    <%= f.text_field :email , class:'form-control' %>
+        </div>
+
+    <div class="field form-group">
+    <%= f.label :Slogan %>
+    <%= f.text_area :slogan, class:'form-control' %>
+        </div>
+
+
+  <div class="actions">
+    <%= f.button :submit , class:'btn btn-success', id:"confirm"%>
+  </div>
+  </div>
+  <script> document.getElementById('confirm').addEventListener('click', function(){
+    swal.fire('Thank you for the participation!')})
+    </script>
+
+<% end %>

@@ -1,0 +1,112 @@
+*{font-family: 'Roboto', sans-serif;}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+.jumbotron {
+    background-image:url("banner.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+}
+.sc-1 {
+    margin-top: 0px;
+    background-image:url("Section1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin-top: -2rem;
+
+}
+.img-fluid {
+    padding: 1.5rem;
+    border-radius: 2rem;
+
+
+}
+#map {
+    height: 100%;
+  }
+  
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .herotext {
+      padding-top: 15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+  }
+  
+  
+  .emoji {
+    display: none;
+    padding: 1rem;
+  }
+  
+  .emoji span {
+    font-size: 4rem;
+    padding: 0 .5rem;
+  }
+.counter {
+
+    background-image:url("section2.jpg");   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+   }
+   .timer {
+       background-color: #242424;
+       border-radius: 1rem;
+
+   }
+   #headline {
+       text-transform: uppercase;
+       font-weight: 500;
+   }
+   .contestbutton {
+
+   }
+   .contest {
+    background-image:url("section3-edit.jpg");   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+
+   }
+   .btn-lg {
+       margin-top: 2rem;
+       margin-bottom: 1rem;
+   }
+   .section1 {
+       padding-top: 5rem;
+       padding-bottom: 5rem;
+   }
+
+@media only screen and (max-width: 900px) {
+    .section1 {
+        display: flex;
+        flex-direction: row-reverse ;
+    }
+}
+.img-logo {
+    width: 5rem;
+}
+.img-logo-footer {
+    width: 15rem;
+}
+.timer-text {
+    font-weight: 700;
+    font-size: 4rem;
+}

@@ -1,0 +1,27 @@
+<section>
+<div class="container p-5">
+<h1 class="text-center p-5">BIKERS</h1>
+<iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/timjini/ckwnvqv2g7i0115p2zitgw261.html?title=false&access_token=pk.eyJ1IjoidGltamluaSIsImEiOiJja3duc3lsZmoycGV2MnFuc2R0b3p2MGIwIn0.FzgjAIFk0BByeaeYYqJlsw&zoomwheel=false#11.44/39.9886/-105.3025" title="Basic" style="border:none;"></iframe>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name </th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bikers.each do |biker| %>
+      <tr>
+        <td><%= biker.first_name %></td>
+        <td><%= biker.last_name %></td>
+        <td><%=biker.city_of_origin %></td>
+      <td> <%=biker.state_of_origin%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>

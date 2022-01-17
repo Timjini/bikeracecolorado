@@ -1,0 +1,60 @@
+<style> .mystyle {
+margin: 5px;
+  border: 1px solid #ccc;
+  width: 180px;
+  }
+  .mystyle:hover{
+     transform: opacity: 0.7;
+     transform: scale(1.5);
+  }
+  .mystyle {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+<script>
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=1c6f05067ad83a3be076a66ba94d916f&tags=cycling&per_page=100&format=json&nojsoncallback=1",
+  "method": "GET",
+  "headers": {}
+}
+
+$.ajax(settings).done(function (data) {
+  console.log(data);
+
+
+
+$("#imagefeedtitle").append(data.photos.photo[0].title + " cyclingallery");
+    	$.each( data.photos.photo, function( i, gp ) {
+
+var farmId = gp.farm;
+var serverId = gp.server;
+var id = gp.id;
+var secret = gp.secret;
+
+console.log(farmId + ", " + serverId + ", " + id + ", " + secret);
+
+//  https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+
+$("#flickr").append('<img class="mystyle" id="img01" src="https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + id + '_' + secret + '.jpg"/>');
+
+});
+});
+</script>
+
+<main>
+<div class="container p-4">
+<h2><div id="imagefeedtitle" class=" text-center"></div></h2>
+<div class="cyclingallery p-2 m-4">
+<div class="model" id="flickr"></div>
+</div>
+</div>
+</main>
