@@ -20,56 +20,46 @@
 </div>
 </div>
 </section>
-<script>(function () {
-  const second = 1000,
-        minute = second * 60,
-        hour = minute * 60,
-        day = hour * 24;
-        month = day * 30;
+<script>// Set the date we're counting down to
+var countDownDate = new Date("Jan 11, 2023 15:37:25").getTime();
 
-  //I'm adding this section so I don't have to keep updating this pen every year :-)
-  //remove this if you don't need it
-  let today = new Date(),
-      dd = String(today.getDate()).padStart(2, "0"),
-      mm = String(today.getMonth() + 1).padStart(2, "0"),
-      yyyy = today.getFullYear(),
-      nextYear = yyyy + 1,
-      dayMonth = "04/01/",
-      race = dayMonth + yyyy;
-  
-  today = mm + "/" + dd + "/" + yyyy;
-  if (today > race) {
-    race = dayMonth + nextYear;
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+
+  var months = Math.floor(distance / (1000 * 60 * 60 * 24 * 30))
+  var days = Math.floor(distance % (1000 * 60 * 60 * 24 * 30) / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+    document.getElementById("months").innerHTML = months  ;
+  document.getElementById("days").innerHTML = days  ;
+  document.getElementById("hours").innerHTML = hours  ;
+  document.getElementById("minutes").innerHTML = minutes  ;
+  document.getElementById("seconds").innerHTML = seconds  ;
+
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("days").innerHTML = "EXPIRED";
   }
-  //end
-  
-  const countDown = new Date(race).getTime(),
-      x = setInterval(function() {    
-
-        const now = new Date().getTime(),
-              distance = countDown - now;
-document.getElementById("months").innerText = Math.floor(distance / (month)),
-        document.getElementById("days").innerText = Math.floor(distance % (month)  / (day)),
-          document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-          document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-          document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
-
-        //do something later when date is reached
-        if (distance < 0) {
-          document.getElementById("headline").innerText = "Let the race begin!";
-          document.getElementById("countdown").style.display = "none";
-          document.getElementById("content").style.display = "block";
-          clearInterval(x);
-        }
-        //seconds
-      }, 0)
-  ();</script>
+}, 1000);</script>
   <section class="counter flex-wrap d-flex">
 <div class="container p-5 ">
   <h2 id="headline" class="text-center text-white display-4">Countdown to the race</h2>
   <div id="countdown" class="row p-3 ">
-  <div class=" text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap" > <h4 id="months" class="text-center timer-text"></h4><br>Months</div>
-  <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"> <h4 id="days" class="text-center timer-text"></h4><br>days</div>
+  <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"> <h4 id="months" class="text-center timer-text"></h4><br>Months</div>
+  <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"> <h4 id="days" class="text-center timer-text"></h4><br>Days</div>
   <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"><h4 id="hours" class="text-center timer-text"></h4><br>Hours</div>
   <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"><h4 id="minutes" class="text-center timer-text"></h4><br>Minutes</div>
   <div class="text-center text-white timer col-sm-4 col-md-2 p-4 m-2 flex-wrap"><h4 id="seconds" class="text-center timer-text"></h4><br>Seconds</div>
